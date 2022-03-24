@@ -1,7 +1,18 @@
 name: Deploy to Dev
+
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Deploy to Dev'
+        # Input has to be provided for the workflow to run
+        required: false
+
+# Disabling on-push trigger - as GH action service is degraded right now
+# on:
+#   push:
+#      branches: [ main ]
+
 jobs:
   build:
     runs-on: self-hosted
