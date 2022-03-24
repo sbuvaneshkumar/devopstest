@@ -1,12 +1,9 @@
 name: Deploy to Dev
-
 on:
   push:
-    branches:
-      - main
-
+    branches: [ main ]
 jobs:
-  deploy:
+  build:
     runs-on: dev
     steps:
       - name: Checkout
