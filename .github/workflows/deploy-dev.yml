@@ -21,3 +21,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Validate Nginx configuration
         run: sudo nginx -t
+      - name: Copy index.html to nginx docs
+        run: sudo rm -rf /var/www/html/index.html && sudo cp ${{ github.workspace }}/index.html /var/www/html/
+      - name: Restart nginx service
+        run: sudo systemctl restart nginx
